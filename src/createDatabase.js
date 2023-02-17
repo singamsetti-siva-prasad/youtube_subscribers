@@ -1,0 +1,35 @@
+const mongoose = require("mongoose");
+const Subscriber = require("./models/subscriber");
+const data = require("./data");
+
+// Connect to database
+const DATABASE_URL = "mongodb://0.0.0.0:27017/subscribers";
+mongoose
+  .connect(DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Database connected");
+  })
+  .catch((err) => {
+    console.log("Error connecting to database", err);
+  });
+
+// Refresh data in subscribers collection
+async function refreshData() {
+  try {
+    await Subscriber.deleteMany({}, { wtimeout: 30000 });
+
+    console.log("Deleted all subscribers");
+    const newSubscribers = await Subscriber.insertMany(data);
+    console.log(`Added ${newSubscribers.length} new subscribers`);
+  } catch (err) {
+    console.log("Error refreshing data", err);
+  } finally {
+    mongoose.disconnect();
+    console.log("Disconnected from database");
+  }
+}
+
+refreshData();
