@@ -1,22 +1,14 @@
 const express = require("express");
 const Subscriber = require("./src/models/subscriber");
+const path = require("path");
 
 //invoking express function
 const app = express();
 
-//register view engine
-app.set("views", "./src/views");
-app.set("view engine", "ejs");
-
-//middleware & static files
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-
 //routes
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.sendFile(path.join(__dirname, "/index.html"));
 });
-
 //get all subscribers
 app.get("/subscribers", async (req, res, next) => {
   try {
