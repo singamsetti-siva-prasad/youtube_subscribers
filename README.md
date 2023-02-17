@@ -4,15 +4,11 @@ This project is a backend application that provides APIs for managing YouTube su
 
 The APIs provided by this application include the following:
 
--> `GET /subscribers`: Returns a list of all subscribers in the database.
+-> `GET /subscribers`: Returns an array of all subscribers in the database.
 
--> `POST /subscribers`: Adds a new subscriber to the database.
+-> `GET /subscribers/names`: Returns an array of subscribers with only two fields name and subscribedChannel
 
 -> `GET /subscribers/:id`: Returns the details of a subscriber with the given ID.
-
--> `PUT /subscribers/:id`: Updates the details of a subscriber with the given ID.
-
--> `DELETE /subscribers/:id`: Deletes a subscriber with the given ID.
 
 
 ## Prerequisites
@@ -34,7 +30,11 @@ MongoDB
 ```bash
  npm install
 ```
-3. Start the application: 
+3. Create a database:
+```bash
+node src/createDatabase.js
+```
+4. Start the application: 
 ```bash
  npm start
 ```
