@@ -1,6 +1,7 @@
 const express = require("express");
 const app = require("./app.js");
 const mongoose = require("mongoose");
+require("dotenv").config();
 const port = 5000;
 
 // Parse JSON bodies (as sent by API clients)
@@ -10,8 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Connect to DATABASE
-const dbUrl = "mongodb://0.0.0.0:27017/subscribers";
-
+const dbUrl = process.env.DATABASE_URL;
 mongoose
   .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => {

@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const Subscriber = require("./models/subscriber");
 const data = require("./data");
+require("dotenv").config();
 
 // Connect to database
-const DATABASE_URL = "mongodb://0.0.0.0:27017/subscribers";
+const DATABASE_URL = process.env.DATABASE_URL;
 mongoose
   .connect(DATABASE_URL, {
     useNewUrlParser: true,
