@@ -11,8 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Connect to DATABASE
-const dbUrl =
-  "mongodb+srv://sivaprasad:sivaprasad@cluster0.lvnrwfs.mongodb.net/subscribers?retryWrites=true&w=majority";
+const dbUrl = process.env.DATABASE_URL;
 mongoose
   .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => {

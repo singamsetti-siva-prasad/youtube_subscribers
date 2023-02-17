@@ -4,8 +4,7 @@ const data = require("./data");
 require("dotenv").config();
 
 // Connect to database
-const DATABASE_URL =
-  "mongodb+srv://sivaprasad:sivaprasad@cluster0.lvnrwfs.mongodb.net/subscribers?retryWrites=true&w=majority";
+const DATABASE_URL = process.env.DATABASE_URL;
 mongoose
   .connect(DATABASE_URL, {
     useNewUrlParser: true,
