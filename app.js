@@ -1,5 +1,5 @@
 const express = require("express");
-const Subscriber = require("./models/subscriber");
+const Subscriber = require("./src/models/subscriber");
 
 //invoking express function
 const app = express();
