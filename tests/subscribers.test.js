@@ -8,7 +8,7 @@ beforeEach(async () => {
   await mongoose.connect(process.env.DATABASE_URL);
 });
 
-//closing databse after each test
+//closing database after each test
 afterEach(async () => {
   await mongoose.connection.close();
 });

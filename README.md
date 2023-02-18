@@ -10,35 +10,47 @@ The APIs provided by this application include the following:
 
 -> `GET /subscribers/:id`: Returns the details of a subscriber with the given ID.
 
-
 ## Prerequisites
+
 Before running this application, you must have the following installed:
 
 Node.js
 
 MongoDB
 
-
-
 ## Installation
 
-1. Clone this repository: 
+1. Clone this repository:
+
 ```bash
  git clone https://github.com/your-username/get-youtube-subscribers.git
 ```
-2. Install dependencies: 
+
+2. Install dependencies:
+
 ```bash
  npm install
 ```
-3. Create a database:
+
+3. Create a .env file and add monogodb uri
+
+4. Create a database:
+
 ```bash
 node src/createDatabase.js
 ```
-4. Start the application: 
+
+5. Start the application:
+
 ```bash
  npm start
 ```
 
+6. Run tests:
+
+```bash
+npm run test
+```
 
 ## Contributing
 

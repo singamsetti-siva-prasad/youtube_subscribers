@@ -4,7 +4,7 @@ const data = require("./data");
 require("dotenv").config();
 
 // Connect to database
-const dbUrl = process.env.DATABASE_URL;
+const dbUrl = process.env.DATABASE_URI;
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
